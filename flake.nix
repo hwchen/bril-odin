@@ -54,11 +54,32 @@
       };
 
       lib = pkgs.lib;
+
+      venvDir = "./.venv";
+
       in {
         devShells.default = pkgs.mkShell {
+        inherit venvDir;
         nativeBuildInputs = [
         pkgs.odin
         pkgs.ols
+
+        # for brili, check ~/.deno/bin when removing.
+        # install brili by deno install brili.ts
+        pkgs.deno
+        # bril2json and bril2txt
+        # requires
+        # ```
+        # pip install flit
+        # cd <bril-txt dir>
+        # flit install --symlink
+        # ```
+        pkgs.python311
+        # Just using venv, install everything by pip for python.
+        # https://www.reddit.com/r/NixOS/comments/q71v0e/what_is_the_correct_way_to_setup_pip_with_nix_to/
+        pkgs.python311Packages.venvShellHook
+
+        # If needed I can define a postShellHook here.
         ];
       };
     });

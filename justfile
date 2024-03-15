@@ -1,5 +1,5 @@
 run:
-    odin run bril
+    odin run brilo
 
 test:
-    odin test bril
+    odin test brilo
