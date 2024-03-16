@@ -12,7 +12,9 @@ main :: proc() {
     buf: [4096]u8
     bytes_read, _ := os.read(os.stdin, buf[:])
 
-    json, jerr := json.parse(buf[:bytes_read])
 
-    fmt.print(json)
+    program: Program
+    _jerr := json.unmarshal(buf[:bytes_read], &program)
+
+    fmt.print(program)
 }
