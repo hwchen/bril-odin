@@ -11,12 +11,12 @@
     flake-utils.lib.eachDefaultSystem (system: let
       odin-overlay = self: super: {
         odin = super.odin.overrideAttrs (old: rec {
-          version = "dev-2024-02";
+          version = "dev-2024-03";
           src = super.fetchFromGitHub {
             owner = "odin-lang";
             repo = "Odin";
             rev = "${version}";
-            sha256 = "sha256-v9A0+kgREXALhnvFYWtE0+H4L7CYnyje+d2W5+/ZvHA=";
+            sha256 = "sha256-oK5OcWAZy9NVH19oep6QU4d5qaiO0p+d9FvxDIrzFLU=";
           };
 
           nativeBuildInputs = with super; [ makeWrapper which ];
@@ -34,12 +34,12 @@
 
       ols-overlay = self: super: {
         ols = super.ols.overrideAttrs (old: rec {
-          version = "nightly-2024-02-17-e7d20e6";
+          version = "nightly-2024-03-11-207fe98";
           src = super.fetchFromGitHub {
             owner = "DanielGavin";
             repo = "ols";
-            rev = "e7d20e6a6e5e1b10e1860f508579ca2d4b9a0ab0";
-            sha256 = "sha256-3QiE2mjynzRT62nY4TxTwQgp2M6yPMi2Wy48L+VPO6k=";
+            rev = "207fe98a46b28297755608904dbf08d06fc50970";
+            sha256 = "sha256-S9cvLf8M0J7Zuf35RmZYtxJ6J215RoECK70SQBR+Kxk=";
           };
 
           installPhase = old.installPhase;
